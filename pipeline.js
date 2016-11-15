@@ -51,15 +51,15 @@ var Pipeline = (function() {
       // take next filter from pending list, and continue execution
       var filter = pending.shift();
 
-      process.nextTick(function() {
+      // process.nextTick(function() {
         // execute the filter function, with the (optional) context
         filter.fn.call(filter.context, result, continueExecution);
-      });
+      // });
     };
 
-    process.nextTick(function() {
+    // process.nextTick(function() {
       continueExecution(null, input);
-    });
+    // });
   };
 
   // Wireup the optional `done` callback with both `error` and `end` event listeners
